@@ -6,7 +6,7 @@ export const PageLayout = () => {
   return (
     <>
       <Header />
-      <Container fixed maxWidth="xl" sx={styles.container}>
+      <Container fixed maxWidth="md" sx={styles.container}>
         <Outlet />
       </Container>
     </>

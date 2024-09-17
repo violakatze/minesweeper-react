@@ -28,7 +28,7 @@ export const useMinesweeper = () => {
       )
       return
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status])
 
   /**
@@ -156,12 +156,12 @@ export const useMinesweeper = () => {
   const [cells, setCells] = useState<Cell[]>(createCells())
 
   useEffect(() => {
-    if(cells === undefined) {
+    if (cells === undefined) {
       return
     }
 
     setRemainings(cells.filter(r => !r.isOpen && !r.isBomb).length)
-  },[cells])
+  }, [cells])
 
   /**
    * セルオープン施行後のセル取得

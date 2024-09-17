@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import { Box, Button, Icon, Stack, Typography } from '@mui/material'
+import Grid from '@mui/material/Grid2'
 import { Bomb } from '@/components/icons'
 import { createUUID } from '@/lib/uuid'
 import { useMinesweeper } from '../hooks'
@@ -32,15 +33,17 @@ export const Page = () => {
 
   return (
     <Stack>
-      <Stack alignItems="center" sx={{ width: '100%', maxWidth: '100%' }}>
+      <Stack sx={{ width: '100%', maxWidth: '100%' }}>
         {rows.map(r => (
-          <Stack direction="row" key={createUUID()}>
+          <Grid container key={createUUID()}>
             {columns.map(c => (
-              <Box sx={styles.border} key={createUUID()}>
-                {renderCellValue(cells[r * columns.length + c])}
-              </Box>
+              <Grid size={12 / columns.length} key={createUUID()}>
+                <Box sx={styles.border} key={createUUID()}>
+                  {renderCellValue(cells[r * columns.length + c])}
+                </Box>
+              </Grid>
             ))}
-          </Stack>
+          </Grid>
         ))}
       </Stack>
       <Stack spacing={2} alignItems="center">
@@ -65,8 +68,7 @@ const styles = {
   border: {
     border: 'solid 1px rgba(224, 224, 224, 1)',
     display: 'flex',
-    width: 60,
-    maxWidth: 60,
+    width: '100%',
     height: 50,
     justifyContent: 'center',
     alignItems: 'center'
